@@ -59,3 +59,12 @@
 * `routes` contains the router files which are responsible for any HTTP requests to `/users/something` or `/api/something`. 
 * `styles` contains all of the sass files. 
 * `server.js` is the entry point to the application. This connects the routes to the database.
+
+## **Final Product**
+
+
+## Installation Instructions
+1. **Clone the Repository:** Clone the LightBnB repository to your local machine.
+2. **Install Dependencies:** Install all dependencies (using the `npm install` command).
+3. **Start the Application:** Run the application using the `npm start` command.
+4. **Access LightBnB:** Open your web browser and navigate to `http://localhost:3000` to access LightBnB.
