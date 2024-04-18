@@ -1,5 +1,5 @@
 # LightBnB Project
-* LightBnB is a web application that allows users to search for places to stay based off of city, accomodations, rating and price. Whether you're traveling for business or pleasure, LightBnB makes it easy to find the perfect place to stay.
+* LightBnB is a web application that allows users to search for places to stay based off of city, accomodations, ratings and price. Whether you're traveling for business or pleasure, LightBnB makes it easy to find the perfect place to stay.
 
 ## Features
 * **User Authentication:** Users can create an account, log in, and log out securely.
@@ -61,7 +61,11 @@
 * `server.js` is the entry point to the application. This connects the routes to the database.
 
 ## **Final Product**
-
+!["Screenshot of main page"](https://github.com/PeterDevelops/LightBnB/blob/main/docs/homeScreen.png?raw=true)
+!["Screenshot of sign up page"](https://github.com/PeterDevelops/LightBnB/blob/main/docs/signUp.png?raw=true)
+!["Screenshot of user signed in page"](https://github.com/PeterDevelops/LightBnB/blob/main/docs/signedIn.png?raw=true)
+!["Screenshot of search page"](https://github.com/PeterDevelops/LightBnB/blob/main/docs/search.png?raw=true)
+!["Screenshot of create listings page"](https://github.com/PeterDevelops/LightBnB/blob/main/docs/createListing.png?raw=true)
 
 ## Installation Instructions
 1. **Clone the Repository:** Clone the LightBnB repository to your local machine.
