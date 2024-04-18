@@ -1,10 +1,10 @@
 # LightBnB Project
-- LightBnB is a web application that allows users to search for and book accommodations for short-term stays. Whether you're traveling for business or pleasure, LightBnB makes it easy to find the perfect place to stay.
+* LightBnB is a web application that allows users to search for places to stay based off of city, accomodations, rating and price. Whether you're traveling for business or pleasure, LightBnB makes it easy to find the perfect place to stay.
 
 ## Features
-- **User Authentication:** Users can create an account, log in, and log out securely.
-- **Property Search:** Search for properties based on location, price, and user ratings.
-- **Property Listings:** Add detailed listings for available properties, including a description, photos, and other amenities.
+* **User Authentication:** Users can create an account, log in, and log out securely.
+* **Property Search:** Search for properties based on location, price, and user ratings.
+* **Property Listings:** Add detailed listings for available properties, including a description, photos, and other amenities.
 
 ## Project Structure
 
