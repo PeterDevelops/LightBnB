@@ -16,7 +16,7 @@ const pool = new Pool({
  * @param {String} email The email of the user.
  * @return {Promise<{}>} A promise to the user.
  */
-const getUserWithEmail = function (email) {
+const getUserWithEmail = function(email) {
   return pool
     .query(`
     SELECT * FROM users 
@@ -26,16 +26,16 @@ const getUserWithEmail = function (email) {
     })
     .catch((err) => {
       console.log(err.message);
-      throw new ERROR('No user with that email')
+      throw new Error('No user with that email');
     });
-  };
+};
 
 /**
  * Get a single user from the database given their id.
  * @param {string} id The id of the user.
  * @return {Promise<{}>} A promise to the user.
  */
-const getUserWithId = function (id) {
+const getUserWithId = function(id) {
   return pool
     .query(`
     SELECT * FROM users 
@@ -45,7 +45,7 @@ const getUserWithId = function (id) {
     })
     .catch((err) => {
       console.log(err.message);
-      throw new ERROR('Id does not exist')
+      throw new Error('Id does not exist');
     });
 };
 
@@ -55,17 +55,17 @@ const getUserWithId = function (id) {
  * @return {Promise<{}>} A promise to the user.
  */
 
-const addUser = function (user) {
+const addUser = function(user) {
   return pool.query(`
   INSERT INTO users (name, email, password) VALUES
   ($1, $2, $3) RETURNING *;`, [user.name, user.email, user.password])
-  .then((result) => {
-    return result.rows[0];
-  })
-  .catch((err) => {
-    console.log(err.message);
-    return null;
-  })
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+      throw new Error('Failed to add user');
+    });
 };
 
 /// Reservations
@@ -75,7 +75,7 @@ const addUser = function (user) {
  * @return {Promise<[{}]>} A promise to the reservations.
  */
 
-const getAllReservations = function (guest_id, limit = 10) {
+const getAllReservations = function(guest_id, limit = 10) {
   return pool.query(`
   SELECT reservations.*, properties.*
   FROM reservations
@@ -85,13 +85,13 @@ const getAllReservations = function (guest_id, limit = 10) {
   GROUP BY properties.id, reservations.id
   ORDER BY reservations.start_date
   LIMIT $2;`, [guest_id, limit])
-  .then((result) => {
-    return result.rows;
-  })
-  .catch((err) => {
-    console.log(err.message);
-    return null;
-  })
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      throw new Error('Failed to get reservation(s)');
+    });
 };
 
 /// Properties
@@ -101,7 +101,7 @@ const getAllReservations = function (guest_id, limit = 10) {
  * @param {*} limit The number of results to return.
  * @return {Promise<[{}]>}  A promise to the properties.
  */
-const getAllProperties = function (options, limit = 10) {
+const getAllProperties = function(options, limit = 10) {
 
   const { city, owner_id, minimum_price_per_night, maximum_price_per_night, minimum_rating } = options;
 
@@ -164,7 +164,7 @@ const getAllProperties = function (options, limit = 10) {
  * @param {{}} property An object containing all of the property details.
  * @return {Promise<{}>} A promise to the property.
  */
-const addProperty = function (property) {
+const addProperty = function(property) {
   const { owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, street, city, province, post_code, country, parking_spaces,
           number_of_bathrooms, number_of_bedrooms } = property;
 
@@ -172,15 +172,15 @@ const addProperty = function (property) {
   INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, street, city,
   province, post_code, country, parking_spaces, number_of_bathrooms, number_of_bedrooms) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
   RETURNING *`, [owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, street, city, province, post_code, country, parking_spaces,
-  number_of_bathrooms, number_of_bedrooms])
+                 number_of_bathrooms, number_of_bedrooms])
     .then((result) => {
-      console.log('addProperty Result:',result)
+      console.log('addProperty Result:',result);
       return result.rows[0];
     })
     .catch((err) => {
       console.log(err.message);
       throw new Error('Failed to add property');
-    })
+    });
 };
 
 module.exports = {
